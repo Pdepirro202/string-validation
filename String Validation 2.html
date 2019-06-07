@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <!---Provide an input textbox to store the user input value-->
+    <input id="txtMyString" type="text" />
+
+    <!--—Provide an button to submit the input value and trigger the parenthesis validation-->
+    <input id="btnMyButton" type="button" onclick="parenthesisarevalid();" value="Enter" />
+
+    <br />
+
+    <br />
+
+    <label>Result:True is a valid string, False is an invalid string</label>
+
+    <br />
+    <br />
+
+    <label id="lblMyStringResults"></label>
+
+    <script type="text/javascript">
+
+        //JavaScript function to validate the string to determine the correct parenthesis structure to return of True or False for an incorrect format
+        function parenthesisarevalid() {
+
+
+            document.getElementById("lblMyStringResults").innerHTML = "";
+            var str = document.getElementById('txtMyString').value
+
+            if (str === '' || str === null || str === undefined) {
+
+                document.getElementById("lblMyStringResults").innerHTML = "Please enter a string in the text box."; return false;
+            }
+            var openparenthesis = 0;
+
+            for (const c of str) {
+
+                if (c == '(') {
+
+                    openparenthesis++;
+
+                }
+
+
+                else if (c == ')') {
+
+                    openparenthesis--;
+
+                }
+
+
+                if (openparenthesis != 0) {
+                    document.getElementById("lblMyStringResults").innerHTML = "False"
+                }
+
+                if (openparenthesis == 0) {
+                    document.getElementById("lblMyStringResults").innerHTML = "True"
+                }
+            }
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>
